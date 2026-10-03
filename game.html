@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,36 +6,77 @@
 
     <style>
         body {
-            text-align: center;
-            font-family: Arial;
+            margin: 0;
             background: #111;
             color: white;
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #game {
+            width: 100%;
+            height: 400px;
+            background: #222;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #player {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: lime;
+            left: 50px;
+            top: 170px;
+            font-size: 35px;
+            text-align: center;
         }
 
         button {
             font-size: 25px;
-            padding: 15px 30px;
-            margin-top: 30px;
+            margin: 10px;
+            padding: 10px 20px;
         }
     </style>
 </head>
 
 <body>
 
-    <h1>🎮 Moje první hra</h1>
+<h1>🎮 Moje první hra</h1>
 
-    <p>Skóre: <span id="score">0</span></p>
+<div id="game">
+    <div id="player">🚀</div>
+</div>
 
-    <button onclick="addPoint()">⭐ ZÍSKAT BOD</button>
+<button onclick="moveLeft()">⬅️</button>
+<button onclick="moveRight()">➡️</button>
 
-    <script>
-        let score = 0;
+<script>
 
-        function addPoint() {
-            score++;
-            document.getElementById("score").textContent = score;
-        }
-    </script>
+let player = document.getElementById("player");
+let position = 50;
+
+function moveLeft() {
+    position -= 20;
+
+    if (position < 0) {
+        position = 0;
+    }
+
+    player.style.left = position + "px";
+}
+
+function moveRight() {
+    position += 20;
+
+    if (position > window.innerWidth - 50) {
+        position = window.innerWidth - 50;
+    }
+
+    player.style.left = position + "px";
+}
+
+</script>
 
 </body>
 </html>
