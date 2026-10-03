@@ -2,13 +2,39 @@
 <html>
 <head>
     <title>Moje první hra</title>
-</head>
-<body>
-    <h1>🎮 Moje první hra</h1>
-    <p>Vítej v mojí první hře!</p>
 
-    <button onclick="alert('Ahoj! 🎉')">
-        Klikni na mě
-    </button>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial;
+            background: #111;
+            color: white;
+        }
+
+        button {
+            font-size: 25px;
+            padding: 15px 30px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>🎮 Moje první hra</h1>
+
+    <p>Skóre: <span id="score">0</span></p>
+
+    <button onclick="addPoint()">⭐ ZÍSKAT BOD</button>
+
+    <script>
+        let score = 0;
+
+        function addPoint() {
+            score++;
+            document.getElementById("score").textContent = score;
+        }
+    </script>
+
 </body>
 </html>
